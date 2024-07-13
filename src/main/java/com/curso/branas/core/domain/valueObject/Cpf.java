@@ -1,20 +1,24 @@
-package com.curso.branas;
+package com.curso.branas.core.domain.valueObject;
 
 import io.quarkus.runtime.util.StringUtil;
-import jakarta.enterprise.context.ApplicationScoped;
 
-@ApplicationScoped
-public class ValidateCpf {
+public class Cpf {
+    private String value;
     private static int FACTOR_FIRST_DIGIT = 10;
     private static int FACTOR_SECOND_DIGIT = 11;
 
-    public boolean execute (String rawCpf) {
+    public Cpf(String cpf) throws Exception {
+        if (!this.validate(cpf)) throw new Exception();
+        this.value = cpf;
+    }
+
+    public boolean validate (String rawCpf) {
         if (StringUtil.isNullOrEmpty(rawCpf)) return false;
-	    String cpf = removeNonDigits(rawCpf);
+        String cpf = removeNonDigits(rawCpf);
         if (!isValidLength(cpf)) return false;
         if (allDigitsEqual(cpf)) return false;
         int firstDigit = calculateDigit(cpf, FACTOR_FIRST_DIGIT);
-	    int secondDigit = calculateDigit(cpf, FACTOR_SECOND_DIGIT);
+        int secondDigit = calculateDigit(cpf, FACTOR_SECOND_DIGIT);
         return extractDigit(cpf).equals(firstDigit + String.valueOf(secondDigit));
     }
 
@@ -50,5 +54,9 @@ public class ValidateCpf {
 
     private String extractDigit (String cpf) {
         return cpf.substring(9);
+    }
+
+    public String getValue () {
+        return this.value;
     }
 }
