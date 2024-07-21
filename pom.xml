@@ -75,7 +75,6 @@
             <version>1.18.30</version>
             <scope>provided</scope>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -133,6 +132,11 @@
                         <maven.home>${maven.home}</maven.home>
                     </systemPropertyVariables>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.3.1</version>
             </plugin>
         </plugins>
     </build>

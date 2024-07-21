@@ -1,14 +1,17 @@
 package com.curso.branas.core.domain.valueObject;
 
+import com.curso.branas.core.domain.exception.CpfInvalid;
 import io.quarkus.runtime.util.StringUtil;
+import lombok.Getter;
 
+@Getter
 public class Cpf {
-    private String value;
-    private static int FACTOR_FIRST_DIGIT = 10;
-    private static int FACTOR_SECOND_DIGIT = 11;
+    private final String value;
+    private static final int FACTOR_FIRST_DIGIT = 10;
+    private static final int FACTOR_SECOND_DIGIT = 11;
 
-    public Cpf(String cpf) throws Exception {
-        if (!this.validate(cpf)) throw new Exception();
+    public Cpf(String cpf) {
+        if (!this.validate(cpf)) throw new CpfInvalid("Cpf inválido", 400);
         this.value = cpf;
     }
 
@@ -56,7 +59,4 @@ public class Cpf {
         return cpf.substring(9);
     }
 
-    public String getValue () {
-        return this.value;
-    }
 }
