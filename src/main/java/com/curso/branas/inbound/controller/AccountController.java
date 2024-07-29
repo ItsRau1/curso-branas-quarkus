@@ -7,6 +7,9 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.UriBuilder;
+
+import javax.print.attribute.standard.Media;
 
 @Path("/account")
 public class AccountController {
@@ -21,6 +24,7 @@ public class AccountController {
     }
 
     @POST
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/signup")
     public Response signUp(SignUpInput signUpInput) {

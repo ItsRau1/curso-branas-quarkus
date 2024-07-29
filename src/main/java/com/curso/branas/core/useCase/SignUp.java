@@ -8,6 +8,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 public class SignUp {
 
     public SignUpOutput execute(SignUpInput input) {
-        return SignUpOutput.builder().accountId("AccountId").build();
+        return SignUpOutput.builder().accountId(input.getName()).build();
     }
+
 }

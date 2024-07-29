@@ -1,9 +1,8 @@
 package com.curso.branas.core.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
