@@ -13,19 +13,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class SignUpInput {
 
-    @NotBlank(message = "Name is required.")
-    private String name;
+	@NotBlank(message = "Name is required.")
+	private String name;
 
-    @NotBlank(message = "E-mail is required.")
-    private String email;
+	@NotBlank(message = "E-mail is required.")
+	private String email;
 
-    @NotBlank(message = "CPF is required.")
-    private Cpf cpf;
+	@NotBlank(message = "CPF is required.")
+	private Cpf cpf;
 
-    private String carPlate;
+	private String carPlate;
 
-    private Boolean isPassanger;
+	private Boolean isPassanger;
 
-    private Boolean isDriver;
+	private Boolean isDriver;
 
 }

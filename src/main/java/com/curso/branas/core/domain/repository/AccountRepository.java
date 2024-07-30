@@ -4,8 +4,8 @@ import com.curso.branas.core.domain.entity.Account;
 
 public interface AccountRepository {
 
-    Boolean existsByEmail(String email);
+	Boolean existsByEmail(String email);
 
-    Account save(Account account);
+	Account save(Account account);
 
 }

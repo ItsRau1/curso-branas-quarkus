@@ -12,24 +12,24 @@ import jakarta.persistence.Table;
 @Table(name = "account")
 public class PanacheAccount extends PanacheEntityBase {
 
-    @Id
-    public String id;
+	@Id
+	public String id;
 
-    public String name;
+	public String name;
 
-    public String email;
+	public String email;
 
-    public String cpf;
+	public String cpf;
 
-    @Column(name = "car_plate")
-    public String carPlate;
+	@Column(name = "car_plate")
+	public String carPlate;
 
-    @Column(name = "is_passanger")
-    public Boolean isPassanger;
+	@Column(name = "is_passanger")
+	public Boolean isPassanger;
 
-    @Column(name = "is_driver")
-    public Boolean isDriver;
+	@Column(name = "is_driver")
+	public Boolean isDriver;
 
-    public String password;
+	public String password;
 
 }

@@ -12,19 +12,19 @@ import jakarta.inject.Inject;
 @ApplicationScoped
 public class SignUp {
 
-    @Inject
-    AccountRepository accountRepository;
+	@Inject
+	AccountRepository accountRepository;
 
-    @Inject
-    AccountMapper accountMapper;
+	@Inject
+	AccountMapper accountMapper;
 
-    public SignUpOutput execute(SignUpInput input) {
-        Boolean existByEmail = accountRepository.existsByEmail(input.getEmail());
-        if (existByEmail)
-            throw new ExistByEmail( "Account with e-mail already exists.",400);
-        Account account = accountMapper.to(input);
-        account = accountRepository.save(account);
-        return accountMapper.from(account);
-    }
+	public SignUpOutput execute(SignUpInput input) {
+		Boolean existByEmail = accountRepository.existsByEmail(input.getEmail());
+		if (existByEmail)
+			throw new ExistByEmail("Account with e-mail already exists.", 400);
+		Account account = accountMapper.to(input);
+		account = accountRepository.save(account);
+		return accountMapper.from(account);
+	}
 
 }

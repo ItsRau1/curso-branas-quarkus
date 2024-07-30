@@ -7,16 +7,16 @@ import lombok.Getter;
 @RegisterForReflection
 public class ExceptionMessage {
 
-    private final String mensagem;
+	private final String mensagem;
 
-    private ExceptionMessage(String mensagem) {
-        this.mensagem = mensagem;
-    }
+	private ExceptionMessage(String mensagem) {
+		this.mensagem = mensagem;
+	}
 
-    public static ExceptionMessage of(String mensagem) {
-        if (mensagem != null)
-            mensagem = mensagem.trim();
-        return new ExceptionMessage(mensagem);
-    }
+	public static ExceptionMessage of(String mensagem) {
+		if (mensagem != null)
+			mensagem = mensagem.trim();
+		return new ExceptionMessage(mensagem);
+	}
 
 }

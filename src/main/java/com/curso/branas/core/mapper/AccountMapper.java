@@ -9,8 +9,8 @@ import org.mapstruct.MappingConstants;
 @Mapper(componentModel = MappingConstants.ComponentModel.JAKARTA)
 public interface AccountMapper {
 
-    Account to(SignUpInput signUpInput);
+	Account to(SignUpInput signUpInput);
 
-    SignUpOutput from (Account account);
+	SignUpOutput from(Account account);
 
 }
