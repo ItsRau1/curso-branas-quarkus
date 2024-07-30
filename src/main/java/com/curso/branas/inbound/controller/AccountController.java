@@ -4,12 +4,10 @@ import com.curso.branas.core.dto.SignUpInput;
 import com.curso.branas.core.dto.SignUpOutput;
 import com.curso.branas.core.useCase.SignUp;
 import jakarta.inject.Inject;
+import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import jakarta.ws.rs.core.UriBuilder;
-
-import javax.print.attribute.standard.Media;
 
 @Path("/account")
 public class AccountController {
@@ -27,7 +25,7 @@ public class AccountController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/signup")
-    public Response signUp(SignUpInput signUpInput) {
+    public Response signUp(@Valid SignUpInput signUpInput) {
         SignUpOutput signUpOutput = signUp.execute(signUpInput);
         return Response.status(Response.Status.CREATED).entity(signUpOutput).build();
     }
