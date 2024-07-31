@@ -1,6 +1,7 @@
 package com.curso.branas.core.dto;
 
 import com.curso.branas.core.domain.valueObject.Cpf;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,7 +20,7 @@ public class SignUpInput {
 	@NotBlank(message = "E-mail is required.")
 	private String email;
 
-	@NotBlank(message = "CPF is required.")
+	@Valid
 	private Cpf cpf;
 
 	private String carPlate;

@@ -8,6 +8,6 @@ import lombok.*;
 @AllArgsConstructor
 public class SignUpOutput {
 
-	private String accountId;
+	private String id;
 
 }

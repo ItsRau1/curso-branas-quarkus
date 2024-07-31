@@ -6,6 +6,7 @@ import com.curso.branas.outbound.hibernate.mapper.PanacheAccountMapper;
 import com.curso.branas.outbound.hibernate.table.PanacheAccount;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 
 @ApplicationScoped
 public class PanacheAccountRepository implements AccountRepository {

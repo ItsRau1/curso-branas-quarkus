@@ -7,11 +7,20 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 
-@Mapper(componentModel = MappingConstants.ComponentModel.JAKARTA, uses = { Cpf.class })
+@Mapper(componentModel = MappingConstants.ComponentModel.JAKARTA, imports = { Cpf.class })
 public interface PanacheAccountMapper {
 
-	PanacheAccount to(Account account); // TODO
+	PanacheAccount to(Account account);
 
-	Account from(PanacheAccount panacheAccount); // TODO
+	@Mapping(target = "password", ignore = true)
+	Account from(PanacheAccount panacheAccount);
+
+	default String fromCpf(Cpf cpf) {
+		return cpf == null ? null : cpf.toString();
+	}
+
+	default Cpf toCpf(String cpf) {
+		return cpf == null ? null : new Cpf(cpf);
+	}
 
 }

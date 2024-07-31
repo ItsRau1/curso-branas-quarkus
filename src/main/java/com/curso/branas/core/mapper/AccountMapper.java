@@ -4,6 +4,7 @@ import com.curso.branas.core.domain.entity.Account;
 import com.curso.branas.core.dto.SignUpInput;
 import com.curso.branas.core.dto.SignUpOutput;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.JAKARTA)

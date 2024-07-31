@@ -8,6 +8,7 @@ import com.curso.branas.core.dto.SignUpOutput;
 import com.curso.branas.core.mapper.AccountMapper;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 
 @ApplicationScoped
 public class SignUp {
@@ -18,11 +19,13 @@ public class SignUp {
 	@Inject
 	AccountMapper accountMapper;
 
+	@Transactional
 	public SignUpOutput execute(SignUpInput input) {
 		Boolean existByEmail = accountRepository.existsByEmail(input.getEmail());
 		if (existByEmail)
 			throw new ExistByEmail("Account with e-mail already exists.", 400);
 		Account account = accountMapper.to(input);
+		account.cadastrar();
 		account = accountRepository.save(account);
 		return accountMapper.from(account);
 	}

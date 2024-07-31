@@ -1,6 +1,7 @@
 package com.curso.branas.core.domain.entity;
 
 import com.curso.branas.core.domain.valueObject.Cpf;
+import jakarta.persistence.Column;
 import lombok.*;
 
 import java.util.UUID;
@@ -21,10 +22,14 @@ public class Account {
 
 	private String carPlate;
 
-	public static Account create(String name, String email, String cpf, String carPlate, Boolean isPassanger,
-			Boolean isDriver) throws Exception {
-		String accountId = UUID.randomUUID().toString();
-		return Account.builder().name(name).email(email).cpf(new Cpf(cpf)).carPlate(carPlate).build();
+	private Boolean isPassanger;
+
+	private Boolean isDriver;
+
+	private String password;
+
+	public void cadastrar() {
+		this.id = UUID.randomUUID().toString();
 	}
 
 }
